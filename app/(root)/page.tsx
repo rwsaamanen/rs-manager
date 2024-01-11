@@ -1,35 +1,20 @@
-import { Poppins } from "next/font/google";
 
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { LoginButton } from "@/components/auth/login-button";
+import React from 'react'
+import Container from './_components/Container'
+import Hero from './_components/Hero'
+import Features from './_components/Features'
+import Testimonials from './_components/Testimonials'
+import Cta from './_components/Cta'
 
-const font = Poppins({
-  subsets: ["latin"],
-  weight: ["600"]
-})
-
-export default function Home() {
+const Home = () => {
   return (
-    <main className="flex h-full flex-col items-center justify-center bg-neutral-800">
-      <div className="space-y-6 text-center">
-        <h1 className={cn(
-          "text-6xl font-semibold text-white drop-shadow-md",
-          font.className,
-        )}>
-          Auth
-        </h1>
-        <p className="text-white text-lg">
-          TODO Landing page
-        </p>
-        <div>
-          <LoginButton>
-            <Button variant="secondary" size="lg">
-              Sign in
-            </Button>
-          </LoginButton>
-        </div>
-      </div>
-    </main>
+    <Container>
+      <Hero />
+      <Features />
+      <Testimonials />
+      <Cta />
+    </Container>
   )
 }
+
+export default Home
