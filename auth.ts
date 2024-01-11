@@ -15,6 +15,7 @@ export const {
 } = NextAuth({
     pages: {
         signIn: "/login",
+        signOut: "/",
         error: "/error",
     },
     events: {
@@ -53,7 +54,6 @@ export const {
             return true;
         },
         async session({ token, session }) {
-            console.log({ sessionToken: token })
 
             if (token.sub && session.user)
                 session.user.id = token.sub;
