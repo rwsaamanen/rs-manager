@@ -10,7 +10,7 @@ const Dashboard = () => {
                     <Link href="https://authjs.dev/" className='underline text-neutral-500 hover:text-blue-600'>
                         Auth.js ( Previously NextAuth )
                     </Link>
-                    <span>.</span></p>
+                </p>
                 <p>More features will be coming later. Feel free to follow the updates on the home page.</p>
             </div>
         </div>
