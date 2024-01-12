@@ -7,7 +7,7 @@ const Dashboard = () => {
             <div className='wrapper text-xl'>
                 <p>
                     <span>At the moment, I have implemented complete authentication using {" "}</span>
-                    <Link href="https://authjs.dev/" className='underline text-neutral-500'>
+                    <Link href="https://authjs.dev/" className='underline text-neutral-500 hover:text-blue-600'>
                         Auth.js ( Previously NextAuth )
                     </Link>
                     <span>.</span></p>
