@@ -54,8 +54,8 @@ const NavLinks = () => {
                     </svg>
                 </button>
                 <div
-                    className={`absolute top-full left-0 bg-neutral-900 border border-neutral-800 p-2 w-32 ${isFeaturesDropdownOpen ? 'block' : 'hidden'}`}>
-                    <p>Content</p>
+                    className={`absolute top-full left-0 bg-secondary border border-neutral-400 text-black p-2 w-32 ${isFeaturesDropdownOpen ? 'block' : 'hidden'}`}>
+                    <p className='cursor-pointer hover:underline'>Content</p>
                 </div>
             </li>
             <li
@@ -81,8 +81,8 @@ const NavLinks = () => {
                     </svg>
                 </button>
                 <div
-                    className={`absolute top-full left-0 bg-neutral-900 border border-neutral-800 p-2 w-32 ${isResourcesDropdownOpen ? 'block' : 'hidden'}`}>
-                    <p>Content</p>
+                    className={`absolute top-full left-0 bg-secondary border border-neutral-400 text-black p-2 w-32 ${isResourcesDropdownOpen ? 'block' : 'hidden'}`}>
+                    <p className='cursor-pointer hover:underline'>Content</p>
                 </div>
             </li>
             <li

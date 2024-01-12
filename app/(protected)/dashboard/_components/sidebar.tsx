@@ -3,17 +3,33 @@
 import {
   ChevronsLeft,
   MenuIcon,
+  ListTodo,
+  File,
+  Home,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
-
+import { useLocalStorage } from "usehooks-ts";
 import { cn } from "@/lib/utils";
 
 import { UserItem } from "./user-item";
 import Link from "next/link";
+import { Accordion } from "@/components/ui/accordion";
+import NavItem from "./nav-item";
 
-export const Sidebar = () => {
+interface SidebarProps {
+  storageKey?: string;
+};
+
+export const Sidebar = ({ storageKey = "t-sidebar-state",
+}: SidebarProps) => {
+
+  const [expanded, setExpanded] = useLocalStorage<Record<string, any>>(
+    storageKey,
+    {}
+  );
+
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const sidebarRef = useRef<ElementRef<"aside">>(null);
@@ -65,6 +81,22 @@ export const Sidebar = () => {
     }
   }
 
+  const defaultAccordionValue: string[] = Object.keys(expanded)
+    .reduce((acc: string[], key: string) => {
+      if (expanded[key]) {
+        acc.push(key);
+      }
+
+      return acc;
+    }, []);
+
+  const onExpand = (id: string) => {
+    setExpanded((curr) => ({
+      ...curr,
+      [id]: !expanded[id],
+    }));
+  };
+
   return (
     <>
       <aside
@@ -87,10 +119,24 @@ export const Sidebar = () => {
         </div>
         <div className="flex-grow">
           <Link href="/dashboard">
-          <h1 className="text-center mt-4 font-semibold text-xl cursor-pointer">Swiftyfi</h1>
+            <h1 className="text-center mt-4 font-semibold text-xl cursor-pointer">Swiftyfi</h1>
           </Link>
+          <div className="flex flex-col items-start space-y-4 px-10 mt-10 text-sm">
+            <Link href="/dashboard" className="flex items-center space-x-2">
+              <Home className="h-4 w-4" />
+              <p className="hover:underline">Home</p>
+            </Link>
+            <Link href="/todo" className="flex items-center space-x-2">
+              <ListTodo className="h-4 w-4" />
+              <p className="hover:underline">TODO List</p>
+            </Link>
+            <Link href="/notes" className="flex items-center space-x-2">
+              <File className="h-4 w-4" />
+              <p className="hover:underline">Notes</p>
+            </Link>
+          </div>
         </div>
-          <UserItem />
+        <UserItem />
       </aside>
       <div
         ref={navbarRef}

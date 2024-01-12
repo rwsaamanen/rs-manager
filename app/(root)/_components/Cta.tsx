@@ -4,7 +4,7 @@ import React from 'react'
 const Cta = () => {
     return (
         <div
-            className="bg-primary p-8 md:px-20 md:py-20 mt-20 mx-auto max-w-5xl rounded-lg flex flex-col items-center text-center mb-20">
+            className="bg-primary p-8 md:px-20 md:py-20 mt-20 mx-auto max-w-5xl rounded-lg flex flex-col items-center text-center mb-20 shadow-lg shadow-neutral-400">
             <h2 className="text-white text-4xl md:text-6xl tracking-tight">
                 Have questions?
             </h2>

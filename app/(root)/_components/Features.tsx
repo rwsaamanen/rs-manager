@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { CheckCircle2 } from "lucide-react"
 const features = [
   {
     title: "Track, share and create your tasks.",
@@ -55,9 +55,8 @@ const Features = () => {
         {
           features.map((item) => (
             <div className="flex gap-4 items-start">
-              <div className="mt-1 bg-black rounded-full  p-2 w-8 h-8 shrink-0">
+                <CheckCircle2 className='text-green-400 h-7 w-7 shrink-0' />
 
-              </div>
               <div>
                 <h3 className="font-semibold text-lg">{item.title}</h3>{" "}
                 <p className="text-gray-400 mt-2 leading-relaxed">{item.description}</p>
