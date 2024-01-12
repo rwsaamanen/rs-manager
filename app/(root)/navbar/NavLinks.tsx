@@ -86,7 +86,7 @@ const NavLinks = () => {
                 </div>
             </li>
             <li
-                className={`${isActivePricing ? 'text-white bg-neutral-700' : 'text-neutral-600'} rounded-md p-1 flex items-center px-2 hover:bg-neutral-200 text-sm font-medium whitespace-nowrap`}
+                className={`${isActivePricing ? 'bg-neutral-200' : 'text-neutral-600'} rounded-md p-1 flex items-center px-2 hover:bg-neutral-200 text-sm font-medium whitespace-nowrap`}
             >
                 <Link href='/pricing'>
                     <button>
@@ -95,7 +95,7 @@ const NavLinks = () => {
                 </Link>
             </li>
             <li
-                className={`${isActiveContact ? 'text-white bg-neutral-700' : 'text-neutral-600'} rounded-md p-1 flex items-center px-2 hover:bg-neutral-200 text-sm font-medium whitespace-nowrap`}
+                className={`${isActiveContact ? 'bg-neutral-200' : 'text-neutral-600'} rounded-md p-1 flex items-center px-2 hover:bg-neutral-200 text-sm font-medium whitespace-nowrap`}
             >
                 <Link href='/contact'>
                     <button>
