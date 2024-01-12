@@ -3,6 +3,7 @@ import { Poppins } from 'next/font/google'
 import { SessionProvider } from 'next-auth/react'
 import { auth } from '@/auth'
 import './globals.css'
+import Notification from '@/components/notification'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -27,6 +28,7 @@ export default async function RootLayout({
     <SessionProvider session={session}>
       <html lang="en">
         <body className={`antialiased bg-[#fdfdfd] text-[#252525] ${poppins.className}`}>
+        <Notification />
           {children}
         </body>
       </html>
