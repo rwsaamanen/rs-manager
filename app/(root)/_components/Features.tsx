@@ -53,12 +53,12 @@ const Features = () => {
 
       <div className="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
         {
-          features.map((item) => (
-            <div className="flex gap-4 items-start">
-                <CheckCircle2 className='text-green-400 h-7 w-7 shrink-0' />
+          features.map((item, index) => (
+            <div key={index} className="flex gap-4 items-start">
+              <CheckCircle2 className='text-green-400 h-7 w-7 shrink-0' />
 
               <div>
-                <h3 className="font-semibold text-lg">{item.title}</h3>{" "}
+                <h3 className="font-semibold text-lg">{item.title}</h3>
                 <p className="text-gray-400 mt-2 leading-relaxed">{item.description}</p>
               </div>
             </div>

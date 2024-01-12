@@ -1,5 +1,7 @@
 "use client";
 
+import React, { useCallback } from 'react';
+
 import {
   ChevronsLeft,
   MenuIcon,
@@ -37,25 +39,11 @@ export const Sidebar = ({ storageKey = "t-sidebar-state",
   const [isResetting, setIsResetting] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(isMobile);
 
-  useEffect(() => {
-    if (isMobile) {
-      collapse();
-    } else {
-      resetWidth();
-    }
-  }, [isMobile]);
-
-  useEffect(() => {
-    if (isMobile) {
-      collapse();
-    }
-  }, [pathname, isMobile]);
-
-  const resetWidth = () => {
+  const resetWidth = useCallback(() => {
     if (sidebarRef.current && navbarRef.current) {
       setIsCollapsed(false);
       setIsResetting(true);
-
+  
       sidebarRef.current.style.width = isMobile ? "100%" : "240px";
       navbarRef.current.style.setProperty(
         "width",
@@ -67,7 +55,21 @@ export const Sidebar = ({ storageKey = "t-sidebar-state",
       );
       setTimeout(() => setIsResetting(false), 300);
     }
-  };
+  }, [isMobile, sidebarRef, navbarRef, setIsCollapsed, setIsResetting]);
+  
+  useEffect(() => {
+    if (isMobile) {
+      collapse();
+    } else {
+      resetWidth();
+    }
+  }, [isMobile, resetWidth]);
+  
+  useEffect(() => {
+    if (isMobile) {
+      collapse();
+    }
+  }, [pathname, isMobile, resetWidth]);
 
   const collapse = () => {
     if (sidebarRef.current && navbarRef.current) {
