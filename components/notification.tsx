@@ -13,6 +13,6 @@ const Notification = () => {
             </section>
         </header>
     );
-}
+};
 
 export default Notification;
